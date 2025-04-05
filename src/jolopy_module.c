@@ -5,7 +5,7 @@
 /* Implementation of the example function */
 int jolopy_add(int a, int b) {
     yoloc_t yoloc;
-    return yoloc_init(&yoloc);
+    return yoloc_init(&yoloc, "yolov8n.onnx", 640, 640, 80);
 }
 
 /* Python wrapper for jolopy_add */
