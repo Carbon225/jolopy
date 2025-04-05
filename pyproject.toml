@@ -3,9 +3,13 @@ name = "jolopy"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.12"
 dependencies = [
     "matplotlib>=3.10.1",
     "numpy>=2.2.4",
+    "onnx>=1.17.0",
+    "onnxruntime>=1.21.0",
+    "onnxslim>=0.1.49",
     "pillow>=11.1.0",
+    "ultralytics>=8.3.23",
 ]

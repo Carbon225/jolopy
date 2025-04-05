@@ -2,6 +2,7 @@ import numpy as np
 from PIL import Image, ImageDraw
 from jolopy import YOLODetector
 import matplotlib.pyplot as plt
+import time
 
 
 if __name__ == "__main__":
@@ -10,6 +11,11 @@ if __name__ == "__main__":
     img = Image.open("image.jpeg")
     img_np = np.array(img)
     detections = yoloc.detect(img_np)
+    start = time.time()
+    for i in range(10):
+        detections = yoloc.detect(img_np)
+    end = time.time()
+    print(f"FPS: {10 / (end - start)}")
     print(detections)
 
     draw = ImageDraw.Draw(img)

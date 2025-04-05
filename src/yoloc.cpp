@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <string>
+#include <iostream>
 
 #include "yolocpp.hpp"
 
@@ -21,6 +22,7 @@ int yoloc_init(yoloc_t *yoloc, const char *model_path, int width, int height, in
     }
     catch (const std::exception &e)
     {
+        std::cerr << "[YOLOCPP] Error: " << e.what() << std::endl;
         yoloc_free(yoloc);
         return -1;
     }
@@ -110,6 +112,7 @@ int yoloc_detect(yoloc_t *yoloc, const uint8_t *img, int width, int height, int 
     }
     catch (const std::exception &e)
     {
+        std::cerr << "[YOLOCPP] Error: " << e.what() << std::endl;
         return -1;
     }
 }
