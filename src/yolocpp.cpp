@@ -23,9 +23,14 @@ public:
         , _input_shape(std::move(input_shape))
     {
         _net = cv::dnn::readNetFromONNX(_model_path);
-        std::cout << "\nRunning on CPU" << std::endl;
         _net.setPreferableBackend(cv::dnn::DNN_BACKEND_OPENCV);
         _net.setPreferableTarget(cv::dnn::DNN_TARGET_CPU);
+        std::cout << "[YOLOCPP] Loaded on CPU" << std::endl;
+    }
+
+    ~Impl()
+    {
+        std::cout << "[YOLOCPP] Unloaded" << std::endl;
     }
 
     std::vector<Detection> detect(
