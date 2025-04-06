@@ -3,10 +3,15 @@ from PIL import Image, ImageDraw
 from jolopy import YOLODetector
 import matplotlib.pyplot as plt
 import time
+import argparse
 
 
 if __name__ == "__main__":
-    yoloc = YOLODetector("yolov8n.onnx", 640, 640, 80)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("model", type=str, default="image.jpeg")
+    args = parser.parse_args()
+
+    yoloc = YOLODetector(args.model, 640, 640, 80)
 
     img = Image.open("image.jpeg")
     img_np = np.array(img)
